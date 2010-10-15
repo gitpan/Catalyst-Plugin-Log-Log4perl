@@ -11,6 +11,7 @@ requires 'namespace::autoclean';
 requires 'Log::Log4perl';
 requires 'Moose';
 
+test_requires 'Catalyst::Runtime' => '5.80';
 test_requires 'Test::More';
 
 auto_install;

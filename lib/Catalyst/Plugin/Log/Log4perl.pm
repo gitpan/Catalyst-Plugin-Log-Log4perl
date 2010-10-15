@@ -4,7 +4,7 @@ use namespace::autoclean;
 use Log::Log4perl;
 use Moose;
 
-our $VERSION = '0.00';
+our $VERSION = '0.01';
 $VERSION = eval $VERSION;
 
 

@@ -3,6 +3,7 @@ abstract: "Catalyst plugin to initialize Log::Log4perl from the application's co
 author:
   - 'jason hord <pravus@cpan.org>'
 build_requires:
+  Catalyst::Runtime: 5.80
   ExtUtils::MakeMaker: 6.42
   Test::More: 0
 configure_requires:
@@ -24,4 +25,4 @@ requires:
   namespace::autoclean: 0
 resources:
   license: http://opensource.org/licenses/mit-license.php
-version: 0.00
+version: 0.01

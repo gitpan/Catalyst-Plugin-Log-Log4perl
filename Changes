@@ -1,0 +1,4 @@
+changes from 0.00 to 0.01
+=========================
+
+  * fixed test dependencies in Makefile.PL

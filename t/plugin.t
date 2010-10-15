@@ -60,8 +60,6 @@ BEGIN {
     },
   );
 
-#  __PACKAGE__->log( Test::C::Log->new );
-
   __PACKAGE__->setup();
 }
 
@@ -83,8 +81,6 @@ BEGIN {
       watch_delay => 'delay',
     },
   );
-
-#  __PACKAGE__->log( Test::C::Log->new );
 
   __PACKAGE__->setup();
 }
