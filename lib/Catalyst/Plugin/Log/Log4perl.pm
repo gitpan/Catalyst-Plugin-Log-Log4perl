@@ -4,8 +4,7 @@ use namespace::autoclean;
 use Log::Log4perl;
 use Moose;
 
-our $VERSION = '0.01';
-$VERSION = eval $VERSION;
+our $VERSION = '0.02';
 
 
 sub setup {
@@ -31,6 +30,8 @@ sub setup {
 1
 __END__
 
+=pod
+
 =head1 NAME
 
 Catalyst::Plugin::Log::Log4perl - Catalyst plugin to initialize Log::Log4perl from the application's configuration
@@ -39,14 +40,14 @@ Catalyst::Plugin::Log::Log4perl - Catalyst plugin to initialize Log::Log4perl fr
 
   # in MyApp.pm
 
-  use Catalyst qw/ ConfigLoader Log::Log4perl /;
-  use Catalyst::Log::Log4perl;
+  use Catalyst qw( ConfigLoader Log::Log4perl );
+  use Log::Log4perl::Catalyst;
 
   ...
 
-  __PACKAGE__->log( Catalyst::Log::Log4perl->new );
+  __PACKAGE__->log( Log::Log4perl::Catalyst->new );
 
-  __PACKAGE__->setup();
+  __PACKAGE__->setup;
 
 
   # in myapp.yaml
@@ -62,30 +63,26 @@ This module allows you to initialize L<Log::Log4perl|Log::Log4perl>
 within the application's configuration.  This is especially useful
 when using L<Catalyst::Plugin::ConfigLoader|Catalyst::Plugin::ConfigLoader>
 to load configuration files.  It is meant to be used in conjunction
-with L<Catalyst::Log::Log4perl|Catalyst::Log::Log4perl>, but can
+with L<Log::Log4perl::Catalyst|Log::Log4perl::Catalyst>, but can
 also be used stand-alone.
 
 =head1 CONFIGURATION
 
-=over 2
-
-=item B<conf>
+=head2 conf
 
 This will be passed directly to C<Log::Log4perl-E<gt>init()>, so it can
 be anything that that method can support.  This includes the name
 of a configuration file or a C<HASH> reference.  See the
 L<Log::Log4perl|Log::Log4perl> documentation for more information.
 
-=item B<watch_delay>
+=head2 watch_delay
 
 If this is present, C<Log::Log4perl-E<gt>init_and_watch()> is used
 for L<Log::Log4perl|Log::Log4perl> initialization with the given delay.
 
-=back
-
 =head1 BUGS
 
-If L<Catalyst::Log::Log4perl|Catalyst::Log::Log4perl> is used,
+If L<Log::Log4perl::Catalyst|Log::Log4perl::Catalyst> is used,
 this module will re-initialize L<Log::Log4perl|Log::Log4perl>
 which is not recommended.  This is unavoidable, though, since your
 application's logger is configured prior to running C<MyApp-E<gt>setup()>.
@@ -100,13 +97,13 @@ jason hord <pravus@cpan.org>
 
 =item L<Log::Log4perl|Log::Log4perl>
 
-=item L<Catalyst::Log::Log4perl|Catalyst::Log::Log4perl>
+=item L<Log::Log4perl::Catalyst|Log::Log4perl::Catalyst>
 
 =back
 
 =head1 COPYRIGHT
 
-Copyright (c) 2010, jason hord
+Copyright (c) 2010-2014, jason hord
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
